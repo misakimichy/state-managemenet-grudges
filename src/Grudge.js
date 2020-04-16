@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GrudgeContext } from './GrudgeContext'
 
-const Grudge = ({ grudge, onForgive }) => {
-  const forgive = () => onForgive(grudge.id)
-
+const Grudge = ({ grudge }) => {
+  const { toggleForgiveness } = useContext(GrudgeContext)
+  const forgive = () => toggleForgiveness(grudge.id)
+  console.log('render grudge', grudge.id)
+  
   return (
     <article className="Grudge">
       <h3>{grudge.person}</h3>
